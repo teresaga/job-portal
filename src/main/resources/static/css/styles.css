@@ -370,6 +370,9 @@ a.color-text,
 a.color-text:hover {
   color: #24a312;
 }
+a:hover {
+  color: #00c6ab;
+}
 
 .btn-sec {
   display: inline-block;
