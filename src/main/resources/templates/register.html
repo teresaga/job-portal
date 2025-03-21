@@ -28,10 +28,10 @@
 <body>
 <section class="content hidden-overflow">
     <div class="row">
-        <div class="col-6 coffee_mug_background">
+        <div class="col-6 coffee_mug_background" title="Foto de Victoria Shes en unsplash.com">
             <div class="logo_left mt-3 pt-4 ms-5 pl-5">
                 <h2 class="logo" style="color: white">
-                    hotdevjobs <span class="logo_com">.com</span>
+                    JobFuture <span class="logo_com"><i class="fa fa-mouse-pointer logo_com" aria-hidden="true"></i></span>
                 </h2>
             </div>
         </div>
@@ -87,6 +87,7 @@
                                                 class="form-control"
                                                 th:field="*{userTypeId}"
                                         >
+                                            <option value="">Select user type...</option>
                                             <th:block th:each="userType :${getAllTypes}">
                                                 <option
                                                         th:text="${userType.userTypeName}"
