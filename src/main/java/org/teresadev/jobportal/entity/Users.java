@@ -34,11 +34,13 @@ public class Users {
     public Users() {
     }
 
-    public Users(String email, String password, Boolean isActive, Date registrationDate) {
+    public Users(int userId, String email, String password, Boolean isActive, Date registrationDate, UsersType userTypeId) {
+        this.userId = userId;
         this.email = email;
         this.password = password;
         this.isActive = isActive;
         this.registrationDate = registrationDate;
+        this.userTypeId = userTypeId;
     }
 
     public int getUserId() {
