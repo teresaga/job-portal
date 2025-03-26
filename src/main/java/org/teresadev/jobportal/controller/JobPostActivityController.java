@@ -28,10 +28,10 @@ public class JobPostActivityController {
 
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUserName = authentication.getName();
-            model.addAttribute("currentUserName", currentUserName);
+            model.addAttribute("username", currentUserName);
         }
         model.addAttribute("user", currentUserProfile);
-
+        System.out.println("Dashboard");
         return "dashboard";
     }
 }
