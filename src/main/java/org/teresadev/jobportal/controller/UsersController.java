@@ -41,12 +41,16 @@ public class UsersController {
     public String userRegistration(@Valid Users user, Model model) {
         //System.out.println("User :: " + user);
 
+        // Check if the email is already registered
         Optional<Users> optionalUser = usersService.findByEmail(user.getEmail());
         if (optionalUser.isPresent()) {
+            // Add to the model all the attributes used in "/register", plus the error
             model.addAttribute("error", "Email already registered, please choose another one");
+
             List<UsersType> usersTypes = usersTypeService.getAll();
             model.addAttribute("getAllTypes", usersTypes);
             model.addAttribute("user", new Users());
+
             return "register";
         }
         usersService.addNew(user);
