@@ -12,7 +12,7 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "userId")
     private int userId;
 
     @Column(unique = true)
@@ -24,7 +24,6 @@ public class Users {
     private Boolean isActive;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @Column(name = "registration_date")
     private Date registrationDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
