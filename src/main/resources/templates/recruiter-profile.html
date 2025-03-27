@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/font-awesome.min.css}" />
-    <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
-    <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/styles.css}" />
-   <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+    <!--
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}"/>
+    -->
+
+
     <title>Profile Setup</title>
 </head>
 
@@ -14,7 +21,7 @@
 <div class="row" style="margin-right:0">
     <div class="col-5 coffee_mug_background">
         <div class="logo_left mt-3 pt-4 ms-5 pl-5">
-            <h2 class="logo" style="color: white">hotdevjobs <span class="logo_com">.com</span></h2>
+            <h2 class="logo" style="color: white">JobFuture <span class="logo_com"><i class="fa fa-mouse-pointer logo_com" aria-hidden="true"></i></span></h2>
         </div>
     </div>
     <div class=" col-7">
@@ -88,8 +95,8 @@
 </div>
 </body>
 <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/main.js}"></script>
 
 </html>
