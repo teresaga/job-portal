@@ -2,9 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
+    <title>Dashboard</title>
+
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -12,8 +14,6 @@
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
-
-    <title>Dashboard</title>
 
 </head>
 
@@ -136,8 +136,7 @@
                                 <label
                                         th:text="${jobPost.jobLocationId.city+', '+ jobPost.jobLocationId.state}"
                                 >
-                                    City State</label
-                                >
+                                    City State</label>
                             </div>
                             <div class="col-md-4 text-right">
                                 <label th:text="@{${jobPost.jobCompanyId.name}}"
@@ -152,7 +151,13 @@
     </article>
 </section>
 
-<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script
+        type="text/javascript"
+        th:src="@{/webjars/jquery/jquery.min.js}"
+></script>
+<script
+        type="text/javascript"
+        th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"
+></script>
 </body>
 </html>
