@@ -12,6 +12,7 @@ public class JobPostActivity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "jobPostId")
     private Integer jobPostId;
 
     @Length(max = 10000)
