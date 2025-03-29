@@ -42,7 +42,7 @@ public class UsersController {
         //System.out.println("User :: " + user);
 
         // Check if the email is already registered
-        Optional<Users> optionalUser = usersService.findByEmail(user.getEmail());
+        Optional<Users> optionalUser = Optional.ofNullable(usersService.findByEmail(user.getEmail()));
         if (optionalUser.isPresent()) {
             // Add to the model all the attributes used in "/register", plus the error
             model.addAttribute("error", "Email already registered, please choose another one");
