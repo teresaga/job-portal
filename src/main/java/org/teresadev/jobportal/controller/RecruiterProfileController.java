@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.teresadev.jobportal.config.StorageProperties;
 import org.teresadev.jobportal.entity.RecruiterProfile;
 import org.teresadev.jobportal.entity.Users;
 import org.teresadev.jobportal.repository.UsersRepository;
@@ -28,10 +29,14 @@ public class RecruiterProfileController {
     private final UsersRepository usersRepository;
     private final RecruiterProfileService recruiterProfileService;
 
+    private final StorageProperties storageProperties;
+
     public RecruiterProfileController(UsersRepository usersRepository,
-                                      RecruiterProfileService recruiterProfileService) {
+                                      RecruiterProfileService recruiterProfileService,
+                                      StorageProperties storageProperties) {
         this.usersRepository = usersRepository;
         this.recruiterProfileService = recruiterProfileService;
+        this.storageProperties = storageProperties;
     }
 
     @GetMapping("/")
@@ -76,7 +81,7 @@ public class RecruiterProfileController {
 
         RecruiterProfile savedUser = recruiterProfileService.addNew(recruiterProfile);
 
-        String uploadDir = "photos/recruiter/" + savedUser.getUserAccountId();
+        String uploadDir = storageProperties.getRecruiter() + savedUser.getUserAccountId();
 
         try {
             // read profile image from request - multipartfile
