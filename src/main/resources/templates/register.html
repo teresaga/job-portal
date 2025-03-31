@@ -91,7 +91,6 @@
                                                 class="form-control"
                                                 th:field="*{userTypeId}"
                                         >
-                                            <option value="">Select user type...</option>
                                             <th:block th:each="userType :${getAllTypes}">
                                                 <option
                                                         th:text="${userType.userTypeName}"

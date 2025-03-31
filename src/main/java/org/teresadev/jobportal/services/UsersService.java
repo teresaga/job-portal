@@ -58,6 +58,10 @@ public class UsersService {
         return usersRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
+    public Optional<Users> checkEmail(String email) {
+        return usersRepository.findByEmail(email);
+    }
+
     public Object getCurrentUserProfile() {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
