@@ -1,8 +1,11 @@
 package org.teresadev.jobportal.services;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.teresadev.jobportal.entity.*;
 import org.teresadev.jobportal.repository.JobPostActivityRepository;
+import org.teresadev.jobportal.repository.JobSeekerApplyRepository;
+import org.teresadev.jobportal.repository.JobSeekerSaveRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,9 +15,17 @@ import java.util.Objects;
 @Service
 public class JobPostActivityService {
     private final JobPostActivityRepository jobPostActivityRepository;
+    private final JobSeekerSaveService jobSeekerSaveService;
+    private final JobSeekerApplyService jobSeekerApplyService;
+    private final JobSeekerSaveRepository jobSeekerSaveRepository;
+    private final JobSeekerApplyRepository jobSeekerApplyRepository;
 
-    public JobPostActivityService(JobPostActivityRepository jobPostActivityRepository) {
+    public JobPostActivityService(JobPostActivityRepository jobPostActivityRepository, JobSeekerSaveService jobSeekerSaveService, JobSeekerApplyService jobSeekerApplyService, JobSeekerSaveRepository jobSeekerSaveRepository, JobSeekerApplyRepository jobSeekerApplyRepository) {
         this.jobPostActivityRepository = jobPostActivityRepository;
+        this.jobSeekerSaveService = jobSeekerSaveService;
+        this.jobSeekerApplyService = jobSeekerApplyService;
+        this.jobSeekerSaveRepository = jobSeekerSaveRepository;
+        this.jobSeekerApplyRepository = jobSeekerApplyRepository;
     }
 
     public JobPostActivity addNew(JobPostActivity jobPostActivity) {
@@ -48,5 +59,17 @@ public class JobPostActivityService {
     public List<JobPostActivity> search(String job, String location, List<String> type, List<String> remote, LocalDate searchDate) {
         return Objects.isNull(searchDate)?jobPostActivityRepository.searchWithoutDate(job, location, remote, type) :
                 jobPostActivityRepository.search(job, location, remote, type, searchDate);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        JobPostActivity jobPostActivity = jobPostActivityRepository.findById(id).orElse(null);
+
+        if (jobPostActivity != null) {
+            jobSeekerSaveRepository.deleteByJob(jobPostActivity.getJobPostId());
+            jobSeekerApplyRepository.deleteByJob(jobPostActivity.getJobPostId());
+            jobPostActivityRepository.deleteById(id);
+        }
+
     }
 }
