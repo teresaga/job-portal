@@ -226,17 +226,22 @@
                             </div>
                         </div>
 
-                        <div class="row mt-3 col d-flex justify-content-center"
-                             sec:authorize="hasAuthority('Job Seeker')">
-                            <div class="text-right">
-                                <button
-                                        type="submit"
-                                        id="submit2"
-                                        name="submit"
-                                        class="btn btn-primary base_button px-4 py-2"
-                                >
-                                    Save
-                                </button>
+                        <div class="row mt-3 col d-flex justify-content-center">
+                            <div class="col-md-4"
+                                 sec:authorize="hasAuthority('Job Seeker')">
+                                <div class="text-right">
+                                    <button
+                                            type="submit"
+                                            id="submit2"
+                                            name="submit"
+                                            class="btn btn-primary base_button px-4 py-2"
+                                    >
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-secondary base_button px-4 py-2 btn-black" onclick="window.location.href='http://localhost:8080/dashboard/'">Back Home</button>
                             </div>
                         </div>
                     </div>
