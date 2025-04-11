@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: spring-app
+    env: java
+    plan: free
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/jobportal-0.0.1-SNAPSHOT.jar"
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        fromEnvVar: SPRING_DATASOURCE_URL
+      - key: SPRING_DATASOURCE_USERNAME
+        fromEnvVar: SPRING_DATASOURCE_USERNAME
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromEnvVar: SPRING_DATASOURCE_PASSWORD
+      - key: FILE_UPLOAD_DIR
+        value: /tmp/photos/
