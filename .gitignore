@@ -125,6 +125,7 @@ Desktop.ini
 *~
 .merge_file*
 /photos
+.env*
 
 ######################
 # Gradle Wrapper

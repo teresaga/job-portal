@@ -16,3 +16,4 @@ services:
         fromEnvVar: SPRING_DATASOURCE_PASSWORD
       - key: FILE_UPLOAD_DIR
         value: /tmp/photos/
+    runtime: java17
